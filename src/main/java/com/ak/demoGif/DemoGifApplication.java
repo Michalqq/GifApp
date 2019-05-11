@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class DemoGifApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(DemoGifApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(DemoGifApplication.class, args);
+    }
 
 }
