@@ -11,15 +11,10 @@ import java.util.List;
 @Controller
 public class GifController {
 
-    @RequestMapping("/")
+    @RequestMapping("/showGifs")
     @ResponseBody
     public StringBuilder showNames(){
-        StringBuilder output = new StringBuilder();
-        for (Gif gifs : GifRepository.getAllGifs()) {
-            output.append(gifs.getName());
-            output.append("<br>");
-        }
-        return output;
+        return GifRepository.getAllGifsName();
     }
 
 }

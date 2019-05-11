@@ -15,11 +15,12 @@ public class GifRepository {
             new Gif("infinite-andrew", true, "andrew")
     );
 
-    public static List<Gif> getAllGifs() {
-        return ALL_GIFS;
-    }
-
-    public static void setAllGifs(List<Gif> allGifs) {
-        ALL_GIFS = allGifs;
+    public static StringBuilder getAllGifsName(){
+        StringBuilder output = new StringBuilder();
+        for (Gif gifs : ALL_GIFS) {
+            output.append(gifs.getName());
+            output.append("<br>");
+        }
+        return output;
     }
 }
