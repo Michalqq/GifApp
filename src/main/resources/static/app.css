@@ -5,12 +5,12 @@ body {
 }
 
 nav {
-    background-color: #896bb3;
+    background-color: #c70303;
     box-shadow: none;
 }
 
 nav .brand-logo, nav ul li.active a {
-    color: #fefefe;
+    color: #969696;
 }
 
 nav ul li a {
@@ -31,7 +31,7 @@ nav ul li.active, nav ul li:hover {
 
 #mobile-nav li a {
     font-size: 1.3rem;
-    color: #906fbc;
+    color: #311b92;
 }
 
 #mobile-nav li.active a {
@@ -68,7 +68,7 @@ nav ul li.active, nav ul li:hover {
 
 .search-bar .input-field input ~ .material-icons, .search-bar .input-field input:focus ~ .material-icons {
     top: 0.5rem;
-    color: #896bb3;
+    color: #2e00ff;
 }
 
 ::-webkit-input-placeholder {
@@ -144,7 +144,7 @@ nav ul li.active, nav ul li:hover {
 }
 
 .gif-detail .meta h4 {
-    color: #896bb3;
+    color: #2e00ff;
     font-size: 1.25rem;
     margin-bottom: 0;
     margin-top: 0.8rem;
@@ -167,14 +167,14 @@ nav ul li.active, nav ul li:hover {
 }
 
 .share .btn {
-    background-color: #896bb3;
+    background-color: #2e00ff;
     box-shadow: none;
     text-transform: none;
     color: #fefefe;
 }
 
 .share span {
-    color: #896bb3;
+    color: #2e00ff;
     line-height: 36px;
 }
 
@@ -210,7 +210,7 @@ nav ul li.active, nav ul li:hover {
 }
 
 .categories .row .col:nth-child(4n+4) .card {
-    background-color: #896bb3;
+    background-color: #2e00ff;
 }
 
 .chip {

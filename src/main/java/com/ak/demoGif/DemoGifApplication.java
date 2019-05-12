@@ -9,7 +9,8 @@ public class DemoGifApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(DemoGifApplication.class, args);
-
+        String a ="sad";
+        a.concat("Sd");
     }
 
 }

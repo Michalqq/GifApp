@@ -1,8 +1,10 @@
 package com.ak.demoGif.model.repository;
 
 import com.ak.demoGif.model.Gif;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -18,13 +20,21 @@ public class GifRepository {
             new Gif("infinite-andrew", true, "andrew")
     );
 
-    public StringBuilder getAllGifsName(){
+    public StringBuilder getAllGifsName() {
         StringBuilder output = new StringBuilder();
         for (Gif gifs : ALL_GIFS) {
             output.append(gifs.getName());
             output.append("<br>");
         }
         return output;
+    }
+
+    public List<Gif> getFavouriteGifs() {
+        List<Gif> favouritesGifs = new ArrayList<>();
+        for (Gif gifs : ALL_GIFS) {
+            if (gifs.isFavorites()) favouritesGifs.add(gifs);
+        }
+        return favouritesGifs;
     }
 
     public List<Gif> getAllGifs() {

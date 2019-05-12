@@ -3,8 +3,8 @@ package com.ak.demoGif.model;
 public class Gif {
 
     private String name;
-    private boolean isFavourite;
     private String userName;
+    private boolean favorites;
 
     public String getName() {
         return name;
@@ -14,12 +14,12 @@ public class Gif {
         this.name = name;
     }
 
-    public boolean isFavourite() {
-        return isFavourite;
+    public boolean isFavorites() {
+        return favorites;
     }
 
-    public void setFavourite(boolean favourite) {
-        isFavourite = favourite;
+    public void setFavorites(boolean favorites) {
+        this.favorites = favorites;
     }
 
     public String getUserName() {
@@ -30,9 +30,9 @@ public class Gif {
         this.userName = userName;
     }
 
-    public Gif(String name, boolean isFavourite, String userName) {
+    public Gif(String name, boolean favorites, String userName) {
         this.name = name;
-        this.isFavourite = isFavourite;
+        this.favorites = favorites;
         this.userName = userName;
     }
 }

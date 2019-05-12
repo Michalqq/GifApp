@@ -45,7 +45,7 @@
     </div>
     <div class="gifs container">
         <div class="row">
-           <div th:each="gif : ${gifs}" class="col s6 14">
+           <div th:each="gif : ${gifs}" class="col s4 14">
                <a th:href="@{'gif/' + ${gif.name}}">
                    <img th:src="@{'/gifs/' + ${gif.name} + '.gif'}">
                    <!--Czy jest ulubiony?-->
