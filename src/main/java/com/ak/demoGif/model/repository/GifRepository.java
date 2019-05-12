@@ -48,4 +48,10 @@ public class GifRepository {
         }
         return gifs;
     }
+    public Gif getGifByName(String name) {
+        for (Gif gif:ALL_GIFS){
+            if (gif.getName().equals(name)) return gif;
+        }
+        return new Gif("error",false,"error",-1);
+    }
 }

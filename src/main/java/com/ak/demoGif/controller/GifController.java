@@ -2,9 +2,11 @@ package com.ak.demoGif.controller;
 
 import com.ak.demoGif.model.Gif;
 import com.ak.demoGif.model.repository.GifRepository;
+import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -40,4 +42,11 @@ public class GifController {
         modelMap.put("gifs", gifRepository.getFavouriteGifs());
         return "favorites";
     }
+
+    @RequestMapping("/gif/{name}")
+    public String gif(@PathVariable String name, ModelMap modelMap){
+        modelMap.put("gif", gifRepository.getGifByName(name));
+    return "gif-details";
+    }
+
 }
