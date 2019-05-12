@@ -1,7 +1,5 @@
 package com.ak.demoGif.model;
 
-import com.sun.javafx.beans.IDProperty;
-
 public class Category {
     private int id;
     private String name;
