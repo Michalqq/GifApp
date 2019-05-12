@@ -12,12 +12,12 @@ import java.util.List;
 @Repository
 public class GifRepository {
     private static List<Gif> ALL_GIFS = Arrays.asList(
-            new Gif("android-explosion", true, "mols"),
-            new Gif("ben-and-mike", true, "mika"),
+            new Gif("computer", true, "mols"),
+            new Gif("programmer", true, "mika"),
             new Gif("book-dominos", false, "mem"),
             new Gif("compiler-bot", false, "bot"),
-            new Gif("cowboy-coder", false, "code"),
-            new Gif("infinite-andrew", true, "andrew")
+            new Gif("numbers", false, "code"),
+            new Gif("run", true, "run")
     );
 
     public StringBuilder getAllGifsName() {
