@@ -37,6 +37,12 @@ public class GifController {
         return "home";
     }
 
+    @RequestMapping("/?q={name}#")
+    public String findByName(@PathVariable String name, ModelMap modelMap) {
+        System.out.println("TEEEEEEEEEEEEEEEEEEST");
+        modelMap.put("gifs", gifRepository.findByName(name));
+        return "home";
+    }
     @RequestMapping("/favorites")
     public String favouriteGifs(ModelMap modelMap) {
         modelMap.put("gifs", gifRepository.getFavouriteGifs());

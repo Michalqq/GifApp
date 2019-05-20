@@ -54,4 +54,12 @@ public class GifRepository {
         }
         return new Gif("error",false,"error",-1);
     }
+
+    public Object findByName(String name) {
+        List<Gif> gifs = new ArrayList<>();
+        for (Gif gif:ALL_GIFS) {
+            if (gif.getName().contains(name)) gifs.add(gif);
+        }
+        return gifs;
+    }
 }
