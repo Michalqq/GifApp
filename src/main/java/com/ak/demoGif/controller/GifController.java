@@ -23,17 +23,6 @@ public class GifController {
         return gifRepository.getAllGifsName();
     }
 
-//    @RequestMapping("/")
-//    //@ResponseBody     - to wyświetla zwróconą wartość jako text w przeglądarce
-//    public String listGifs(ModelMap modelMap) {
-//        // 1. Wyciągniecie gifów
-//        List<Gif> gifs = gifRepository.getAllGifs();
-//        // 2. Przekazanie gifa do view
-//        modelMap.put("gifs", gifs);
-//        // 3. Zwracanie widoku
-//        return "home";
-//    }
-
     @RequestMapping("/")
     public String findByName(@RequestParam(value = "q", required = false, defaultValue = "") String name, ModelMap modelMap) {
         List<Gif> gifs = gifRepository.findByName(name);
