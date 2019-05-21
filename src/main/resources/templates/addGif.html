@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" th:href="@{/app.css}" />
 
-    <title th:text="'giflib | ' + ${category.name}">Category</title>
+    <title>Categories</title>
 </head>
 <body>
 <div class="navbar-fixed">
@@ -22,13 +22,13 @@
                 <li><a th:href="@{/}">Explore</a></li>
                 <li><a th:href="@{/categories}">Categories</a></li>
                 <li><a th:href="@{/favorites}">Favorites</a></li>
-                <li><a th:href="@{/addGif}">Add Gif</a></li>
+                <li class="active"><a th:href="@{/addGif}">Add Gif</a></li>
             </ul>
             <ul id="mobile-nav" class="side-nav">
                 <li><a th:href="@{/}">Explore</a></li>
                 <li><a th:href="@{/categories}">Categories</a></li>
                 <li><a th:href="@{/favorites}">Favorites</a></li>
-                <li><a th:href="@{/addGif}">Add Gif</a></li>
+                <li class="active"><a th:href="@{/addGif}">Add Gif</a></li>
             </ul>
         </div>
     </nav>
@@ -38,27 +38,28 @@
         <div class="col s12">
             <form action="#" method="get">
                 <div class="input-field">
-                    <input name="q" type="search" placeholder="Search all gifs..." required="required" autocomplete="off"/>
-                    <i class="material-icons">search</i>
+                    <a>Select a file: </a><input type="file" name="myFile" style="width:85%">
+                    <i class="material-icons" align="right">input</i>
                 </div>
             </form>
         </div>
     </div>
 </div>
-<div class="gifs container">
-    <div class="chip" th:text="${category.name}">category name</div>
-    <div class="row">
-     
-        <div th:each="gif : ${gifs}" class="col s12 l4">
-      
-            <a th:href="@{'/gif/' + ${gif.name}}">
-               
-                <img th:src="@{'/gifs/' + ${gif.name} + '.gif'}" />
-                <a href="#" th:class="(${gif.favorites}? 'un' : '') + 'mark favorite'"></a>
-            </a>
-        </div>
-    </div>
-</div>
+<!--<div class="categories container">-->
+    <!--<div class="row">-->
+      <!---->
+        <!--<div th:each="category : ${categories}" class="col s12 l4">-->
+            <!--<div class="card">-->
+                <!--<div class="card-content">-->
+                    <!--<div class="card-title">-->
+                     <!---->
+                        <!--<a th:href="@{'/category/' + ${category.id}}" th:text="${category.name}">Category Name</a>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
 
 <script th:src="@{/vendor/jquery/jquery-1.11.3.js}"></script>
 <script th:src="@{/vendor/materialize/js/materialize.js}"></script>
