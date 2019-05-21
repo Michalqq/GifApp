@@ -59,7 +59,6 @@ public class GifRepository {
         List<Gif> gifs = new ArrayList<>();
         for (Gif gif:ALL_GIFS) {
             if (gif.getName().contains(name)) {
-                System.out.println(gif);
                 gifs.add(gif);
             }
         }

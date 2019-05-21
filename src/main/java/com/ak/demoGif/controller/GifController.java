@@ -42,5 +42,10 @@ public class GifController {
         modelMap.put("gif", gifRepository.getGifByName(name));
         return "gif-details";
     }
+    @RequestMapping("/addGif")
+    public String addGif(ModelMap modelMap) {
+        return "addGif";
+    }
+
 
 }
