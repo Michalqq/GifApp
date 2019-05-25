@@ -33,17 +33,31 @@
         </div>
     </nav>
 </div>
+
+<div th:if="${message}">
+    <h2 th:text="${message}"/>
+</div>
+
 <div class="search-bar container">
     <div class="row">
         <div class="col s12">
-            <form action="#" method="get">
-                <div class="input-field">
-                    <a>Select a file: </a><input type="file" name="myFile" style="width:85%">
-                    <i class="material-icons" align="right">input</i>
-                </div>
+            <form action="/addGif" method="POST" enctype="multipart/form-data" >
+                <table>
+                    <tr><td>File to upload:</td><td><input type="file" name="file" /></td></tr>
+                    <tr><td></td><td><input type="submit" value="Upload"/></td></tr>
+                </table>
             </form>
         </div>
     </div>
+</div>
+
+
+<div>
+    <ul>
+        <li th:each="file : ${files}">
+            <a th:href="${file}" th:text="${file}" />
+        </li>
+    </ul>
 </div>
 <!--<div class="categories container">-->
     <!--<div class="row">-->

@@ -3,12 +3,17 @@ package com.ak.demoGif.controller;
 
 import java.io.IOException;
 import java.util.stream.Collectors;
+
+import com.ak.demoGif.model.repository.GifRepository;
+import com.ak.demoGif.storage.StorageException;
+import com.ak.demoGif.storage.StorageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,19 +31,22 @@ public class FileUploadController {
     private StorageService storageService;
 
     @Autowired
+    private GifRepository gifRepository;
+
+    @Autowired
     public FileUploadController(StorageService storageService) {
         this.storageService = storageService;
     }
 
-    @GetMapping("/asd")
+    @GetMapping("/addGif")
     public String listUploadedFiles(Model model) throws IOException {
 
-        model.addAttribute("files", storageService.loadAll().map(
-                path -> MvcUriComponentsBuilder.fromMethodName(FileUploadController.class,
-                        "serveFile", path.getFileName().toString()).build().toString())
-                .collect(Collectors.toList()));
+//        model.addAttribute("files", storageService.loadAll().map(
+//                path -> MvcUriComponentsBuilder.fromMethodName(FileUploadController.class,
+//                        "serveFile", path.getFileName().toString()).build().toString())
+//                .collect(Collectors.toList()));
 
-        return "uploadForm";
+        return "addGif";
     }
 
     @GetMapping("/files/{filename:.+}")
@@ -50,15 +58,21 @@ public class FileUploadController {
                 "attachment; filename=\"" + file.getFilename() + "\"").body(file);
     }
 
-    @PostMapping("/asd")
+    @PostMapping("/addGif")
     public String handleFileUpload(@RequestParam("file") MultipartFile file,
                                    RedirectAttributes redirectAttributes) {
+        String filename = StringUtils.cleanPath(file.getOriginalFilename());
+        if (filename.length() > 4 && filename.substring(filename.length() - 4).equals(".gif")) {
+            storageService.store(file);
+            gifRepository.addGif(filename.substring(0,filename.length()-4), false, "online", 0);
+            redirectAttributes.addFlashAttribute("message",
+                    "You successfully uploaded " + file.getOriginalFilename() + "!");
+        } else {
+            redirectAttributes.addFlashAttribute("message",
+                    "Plik nie jest typu GIF");
+        }
 
-        storageService.store(file);
-        redirectAttributes.addFlashAttribute("message",
-                "You successfully uploaded " + file.getOriginalFilename() + "!");
-
-        return "redirect:/";
+        return "redirect:/addGif";
     }
 
 
