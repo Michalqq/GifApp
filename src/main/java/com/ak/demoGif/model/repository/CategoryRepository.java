@@ -8,13 +8,14 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 
-@Component
+@Repository
 public class CategoryRepository {
 
     public static final List<Category> ALL_CATEGORIES = Arrays.asList(
             new Category(0, "funny"),
             new Category(1, "sport"),
-            new Category(2, "IT")
+            new Category(2, "IT"),
+            new Category(3, "other")
     );
 
     public List<Category> getAllCategories() {

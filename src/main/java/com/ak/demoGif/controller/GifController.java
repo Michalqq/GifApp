@@ -4,12 +4,10 @@ import com.ak.demoGif.model.Gif;
 import com.ak.demoGif.model.repository.GifRepository;
 import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.jws.WebParam;
 import java.util.List;
@@ -27,13 +25,9 @@ public class GifController {
     }
 
     @RequestMapping("/")
-    //@ResponseBody     - to wyświetla zwróconą wartość jako text w przeglądarce
-    public String listGifs(ModelMap modelMap) {
-        // 1. Wyciągniecie gifów
-        List<Gif> gifs = gifRepository.getAllGifs();
-        // 2. Przekazanie gifa do view
+    public String findByName(@RequestParam(value = "q", required = false, defaultValue = "") String name, ModelMap modelMap) {
+        List<Gif> gifs = gifRepository.findByName(name);
         modelMap.put("gifs", gifs);
-        // 3. Zwracanie widoku
         return "home";
     }
 
@@ -44,9 +38,14 @@ public class GifController {
     }
 
     @RequestMapping("/gif/{name}")
-    public String gif(@PathVariable String name, ModelMap modelMap){
+    public String gif(@PathVariable String name, ModelMap modelMap) {
         modelMap.put("gif", gifRepository.getGifByName(name));
-    return "gif-details";
+        return "gif-details";
     }
+    @RequestMapping("/addGif")
+    public String addGif(ModelMap modelMap) {
+        return "addGif";
+    }
+
 
 }
