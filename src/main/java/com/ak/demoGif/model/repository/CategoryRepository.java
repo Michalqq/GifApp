@@ -8,7 +8,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 
-@Component
+@Repository
 public class CategoryRepository {
 
     public static final List<Category> ALL_CATEGORIES = Arrays.asList(
