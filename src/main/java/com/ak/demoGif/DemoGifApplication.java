@@ -1,6 +1,6 @@
 package com.ak.demoGif;
 
-import com.ak.demoGif.controller.StorageService;
+import com.ak.demoGif.storage.StorageService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
