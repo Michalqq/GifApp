@@ -4,6 +4,7 @@ package com.ak.demoGif.controller;
 import java.io.IOException;
 import java.util.stream.Collectors;
 
+import com.ak.demoGif.model.Category;
 import com.ak.demoGif.model.repository.CategoryRepository;
 import com.ak.demoGif.model.repository.GifRepository;
 import com.ak.demoGif.storage.StorageException;
@@ -58,13 +59,12 @@ public class FileUploadController {
     }
 
     @PostMapping("/addGif")
-    public String handleFileUpload(@RequestParam("file") MultipartFile file,
+    public String handleFileUpload(@RequestParam("file") MultipartFile file,@RequestParam("inputCategories") int category,
                                    RedirectAttributes redirectAttributes) {
-
         String filename = StringUtils.cleanPath(file.getOriginalFilename());
         if (filename.length() > 4 && filename.substring(filename.length() - 4).equals(".gif")) {
             storageService.store(file);
-            gifRepository.addGif(filename.substring(0,filename.length()-4), false, "online", 0);
+            gifRepository.addGif(filename.substring(0,filename.length()-4), false, "online", category);
             redirectAttributes.addFlashAttribute("message",
                     "You successfully uploaded " + file.getOriginalFilename() + "!");
         } else {
