@@ -30,7 +30,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Controller
 public class FileUploadController {
 
-    @Autowired
+    //@Autowired
     private StorageService storageService;
     @Autowired
     private CategoryRepository categoryRepository;
