@@ -4,11 +4,11 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-    <link rel="icon" th:href="@{/favicon.png}" />
+    <link rel="icon" th:href="@{/favicon.png}"/>
 
-    <link rel="stylesheet" th:href="@{/vendor/materialize/css/materialize.css}" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-    <link rel="stylesheet" th:href="@{/app.css}" />
+    <link rel="stylesheet" th:href="@{/vendor/materialize/css/materialize.css}"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+    <link rel="stylesheet" th:href="@{/app.css}"/>
 
     <title>Categories</title>
 </head>
@@ -34,45 +34,68 @@
     </nav>
 </div>
 
-<div th:if="${message}">
-    <h2 th:text="${message}"/>
-</div>
 
 <div class="search-bar container">
     <div class="row">
-        <div class="col s12">
-            <form action="/addGif" method="POST" enctype="multipart/form-data" >
-                <table>
-                    <tr><td>File to upload:</td><td><input type="file" name="file" /></td></tr>
-                    <tr><td></td><td><input type="submit" value="Upload"/></td></tr>
-                </table>
+        <div class="col s6">
+            <form action="/addGif" method="POST" enctype="multipart/form-data">
+                <a>File to upload:</a>
+                <a><input class="btn right" type="file" name="file"/></a>
+                <a></a>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s3">
+            <a>Category:</a>
+        </div>
+        <div class="col s3">
+            <form action="scheduleCategories" method="post">
+                <select class="btn right" id="inputCategories" name="inputCategories">
+                    <option th:each="category : ${categories}" th:value="${category.id}" th:text="${category.name}">
+                        Category
+                        Name
+                    </option>
+                </select>
             </form>
         </div>
     </div>
 </div>
+<div class="row">
+    <div class="col s6">
+        <a><input class="btn right" type="submit" value="Upload"/></a>
+    </div>
+</div>
 
+<div class="row">
+    <div class="col s12">
+        <div th:if="${message}">
+            <h2 th:text="${message}"/>
+        </div>
+    </div>
+</div>
 
 <div>
     <ul>
         <li th:each="file : ${files}">
-            <a th:href="${file}" th:text="${file}" />
+            <a th:href="${file}" th:text="${file}"/>
         </li>
     </ul>
 </div>
 <!--<div class="categories container">-->
-    <!--<div class="row">-->
-      <!---->
-        <!--<div th:each="category : ${categories}" class="col s12 l4">-->
-            <!--<div class="card">-->
-                <!--<div class="card-content">-->
-                    <!--<div class="card-title">-->
-                     <!---->
-                        <!--<a th:href="@{'/category/' + ${category.id}}" th:text="${category.name}">Category Name</a>-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
+<!--<div class="row">-->
+<!---->
+<!--<div th:each="category : ${categories}" class="col s12 l4">-->
+<!--<div class="card">-->
+<!--<div class="card-content">-->
+<!--<div class="card-title">-->
+<!---->
+<!--<a th:href="@{'/category/' + ${category.id}}" th:text="${category.name}">Category Name</a>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
 <!--</div>-->
 
 <script th:src="@{/vendor/jquery/jquery-1.11.3.js}"></script>

@@ -4,11 +4,11 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-    <link rel="icon" th:href="@{/favicon.png}" />
+    <link rel="icon" th:href="@{/favicon.png}"/>
 
-    <link rel="stylesheet" th:href="@{/vendor/materialize/css/materialize.css}" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-    <link rel="stylesheet" th:href="@{/app.css}" />
+    <link rel="stylesheet" th:href="@{/vendor/materialize/css/materialize.css}"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+    <link rel="stylesheet" th:href="@{/app.css}"/>
 
     <title>Categories</title>
 </head>
@@ -38,7 +38,8 @@
         <div class="col s12">
             <form action="#" method="get">
                 <div class="input-field">
-                    <input name="q" type="search" placeholder="Search all gifs..." required="required" autocomplete="off"/>
+                    <input name="q" type="search" placeholder="Search all gifs..." required="required"
+                           autocomplete="off"/>
                     <i class="material-icons">search</i>
                 </div>
             </form>
@@ -47,12 +48,12 @@
 </div>
 <div class="categories container">
     <div class="row">
-      
+
         <div th:each="category : ${categories}" class="col s12 l4">
             <div class="card">
                 <div class="card-content">
                     <div class="card-title">
-                     
+
                         <a th:href="@{'/category/' + ${category.id}}" th:text="${category.name}">Category Name</a>
                     </div>
                 </div>
