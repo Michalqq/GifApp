@@ -21,7 +21,7 @@ public class EmailSenderImpl implements EmailSender {
         try {
             MimeMessageHelper helper = new MimeMessageHelper(mail, true);
             helper.setTo(to);
-            helper.setReplyTo("newsletter@codecouple.pl");
+            helper.setReplyTo("wi7@vp.pl");
             helper.setFrom("newsletter@codecouple.pl");
             helper.setSubject(title);
             helper.setText(content, true);
