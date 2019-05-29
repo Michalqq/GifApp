@@ -2,12 +2,8 @@ package com.ak.demoGif.controller;
 
 
 import java.io.IOException;
-import java.util.stream.Collectors;
-
-import com.ak.demoGif.model.Category;
 import com.ak.demoGif.model.repository.CategoryRepository;
 import com.ak.demoGif.model.repository.GifRepository;
-import com.ak.demoGif.storage.StorageException;
 import com.ak.demoGif.storage.StorageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
@@ -23,7 +19,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBuilder;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 
