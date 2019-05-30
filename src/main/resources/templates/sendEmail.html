@@ -48,6 +48,11 @@
             <textarea type="text" rows="15" cols="15" name="text" style="height:200px"></textarea>
             <br>
             <input class="btn left" type="submit" value="Send">
+            <div class="row">
+                <div th:if="${message}">
+                    <h7 th:text="${message}"/>
+                </div>
+            </div>
         </form>
     </div>
 </div>

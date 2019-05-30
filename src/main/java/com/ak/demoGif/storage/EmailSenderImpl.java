@@ -16,18 +16,19 @@ public class EmailSenderImpl implements EmailSender {
     private JavaMailSender javaMailSender;
 
     @Override
-    public void sendEmail(String to, String title, String content) {
+    public boolean sendEmail(String to, String title, String content) {
         MimeMessage mail = javaMailSender.createMimeMessage();
         try {
             MimeMessageHelper helper = new MimeMessageHelper(mail, true);
             helper.setTo(to);
             helper.setReplyTo("wi7@vp.pl");
-            helper.setFrom("newsletter@codecouple.pl");
             helper.setSubject(title);
             helper.setText(content, true);
         } catch (MessagingException e) {
             e.printStackTrace();
+            return false;
         }
         javaMailSender.send(mail);
+        return true;
     }
 }

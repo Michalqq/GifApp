@@ -60,11 +60,9 @@ public class FileUploadController {
         if (filename.length() > 4 && filename.substring(filename.length() - 4).equals(".gif")) {
             storageService.store(file);
             gifRepository.addGif(filename.substring(0,filename.length()-4), false, "online", category);
-            redirectAttributes.addFlashAttribute("message",
-                    "You successfully uploaded " + file.getOriginalFilename() + "!");
+            redirectAttributes.addFlashAttribute("message","You successfully uploaded " + file.getOriginalFilename() + "!");
         } else {
-            redirectAttributes.addFlashAttribute("message",
-                    "Plik nie jest typu GIF");
+            redirectAttributes.addFlashAttribute("message","This is not .gif file. You can't upload it");
         }
 
         return "redirect:/addGif";
