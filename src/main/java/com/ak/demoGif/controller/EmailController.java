@@ -42,8 +42,6 @@ public class EmailController {
         context.setVariable("description", "Mail od: " + username + ", z adresu: " + email + text);
         body = templateEngine.process("template", context);
         emailSender.sendEmail("wi7@vp.pl", "My App", body);
-
-        emailSender.sendEmail("wi7@vp.pl", "My App", "asdasd<br>asdsadas<br>asdasdas<br>");
         return "redirect:/sendEmail";
 
     }
